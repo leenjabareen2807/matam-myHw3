@@ -40,6 +40,7 @@ namespace mtm {
 
         void destroyList();
         void copyNodes(const SortedList<T>& other);
+        void unionize(const SortedList<T>& other);
 
     public:
         class ConstIterator;
@@ -62,7 +63,7 @@ namespace mtm {
         template<class Operation>
         SortedList apply(Operation op) const;
 
-        void unionize(const SortedList<T>& other);
+       
     };
 
     template <typename T>
