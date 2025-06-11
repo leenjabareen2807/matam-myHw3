@@ -20,9 +20,6 @@ private:
     int TaskId;
     int personsNum;
 
-
-    // Note - Additional private fields and methods can be added if needed.
-
 public:
     /**
      * @brief Default constructor to create a TaskManager object.
