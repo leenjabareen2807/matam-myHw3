@@ -154,9 +154,7 @@ namespace mtm {
 
     template<typename T>
     void SortedList<T>::insert(const T& value) {
-         if (value == 0) {
-        throw std::invalid_argument("Cannot insert zero into the list");
-    }
+
         Node* newNode = new Node(value);
 
         if (!head || value > head->value) {  // Uses the overloaded operator> to compare Tasks
