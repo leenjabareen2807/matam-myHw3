@@ -59,4 +59,16 @@ void TaskManager::printTasksByType(TaskType type) const {
         std::cout << task << std::endl;
     }
 }
+void TaskManager::printAllTasks() const {
+    SortedList<Task> allTasks;
+    for(int i = 0; i < personsNum; i++) {
+        const SortedList<Task>& personTasks = persons[i].getTasks();
+        for(const Task& task : personTasks) {
+            allTasks.insert(task);
+        }
+    }
+    for(const Task& task : allTasks) {
+        std::cout << task << std::endl;
+    }
+}
 
