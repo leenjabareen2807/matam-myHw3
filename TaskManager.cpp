@@ -72,3 +72,20 @@ void TaskManager::printAllTasks() const {
     }
 }
 
+void TaskManager::bumpPriorityByType(TaskType type, int priority) {
+    if (priority < 0) return;
+    for(int i = 0; i < personsNum; i++) {
+        const SortedList<Task>& persontasks = persons[i].getTasks();
+        SortedList<Task> results;
+        for (const Task& task : persontasks) {
+            int oldpriority = task.getPriority();
+            Task newtask(oldpriority + (task.getType() == type ? priority : 0), 
+                      task.getType(), 
+                      task.getDescription());
+            newtask.setId(task.getId());  // Preserve task ID
+            results.insert(newtask);
+        }
+        persons[i].setTasks(results);
+    }
+}
+
