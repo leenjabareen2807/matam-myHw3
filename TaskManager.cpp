@@ -28,5 +28,22 @@ void TaskManager::assignTask(const string& name, const Task& task) {
     newTask.setId(TaskId++);
     persons[personIndex].assignTask(newTask);
 }
+void TaskManager::completeTask(const string& name) {
+     int flag=0;
+    for(int i=0;i<personsNum &&i<MAX_PERSONS;i++) {
+
+        if( persons[i].getName()==name) {
+            flag=1;
+            persons[i].completeTask();
+        }
+    }
+    if(flag==0)return;
+}
+
+void TaskManager::printAllEmployees() const {
+    for (int i = 0; i < personsNum; i++) {
+        std::cout << persons[i] << std::endl;
+    }
+}
 
 
